@@ -1,17 +1,29 @@
-try:
-    f1 = open("practic_Zyryanov.txt", "r")
-    data1 = ["10", "15", "1922"]
-    while True:
-        data = f1.readline().split("-")
-        print(data)
-        if  (data [0]) == "":
-            break
-        if int(data[0]) < int(data1[1]):
-            data1[0] = data[0]
-        if int(data[1]) < int(data1[1]):
-            data1[1] = data[1]
+def openfile():
+    try:
+        f1 = open("practic_Zyryanov.txt", "r")
+        while True:
+            data = f1.readline().split("-")
+            print(data)
+            if (data[0]) == "":
+                break
+            return data
+        f1.close()
+    except IOError:
+        print(IOError.with_traceback())
 
-    f1.close()
-    print(data1[0]," - ", data1[1])
-except IOError:
-    print(IOError.with_traceback())
+
+def dataMonth():
+    data2 = openfile()
+    print(data2)
+    data1 = ["10", "15", "1922"]
+    if int(data2[0]) < int(data1[0]):
+        data1[0] = data2[0]
+    if int(data2[1]) < int(data1[1]):
+        data1[1] = data2[1]
+    print(data1[1]), " - ",
+
+
+
+
+
+
